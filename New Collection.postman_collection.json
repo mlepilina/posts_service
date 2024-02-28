@@ -1,0 +1,532 @@
+{
+	"info": {
+		"_postman_id": "e5a493a8-6043-4574-87db-a73508e902e5",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28041720"
+	},
+	"item": [
+		{
+			"name": "Регистрация пользователя",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"qwe2@mail.ru\",\r\n    \"phone\": \"1234512345123\",\r\n    \"birth_date\": \"2000-01-01\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Логин, получение токенов",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"qwe1@mail.ru\",\r\n    \"password\": \"qweqweqwe1\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактировать пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5MTE4MDI2LCJpYXQiOjE3MDkwOTY0MjYsImp0aSI6IjZlOWQ5ODZiODc2ZTRmN2E5NzYyZjk0OWExNzNmNGQ2IiwidXNlcl9pZCI6MTR9.KRV_5nIDe8I2Byf3wJmis0S45rUrvPS2mRwo9nD3NJg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"123451234512\",\r\n    \"birth_date\": \"1979-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/user_info/?user_id=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"user_info",
+						""
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NjAzMDk5LCJpYXQiOjE3MDg1ODE0OTksImp0aSI6IjM2Y2U1MWYyZTY3NjQxYTdiM2M4MThlNWIzNGY3ZDE2IiwidXNlcl9pZCI6N30.ChPD5Nj7fv_H69C0RO2qW1of_cKP5BT19AiQluwAK08",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/user_info/?user_id=12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"user_info",
+						""
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Посмотреть профиль пользователя",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5MDY5OTYzLCJpYXQiOjE3MDkwNDgzNjMsImp0aSI6IjlhMTZjZWNlNGFhNzRhZDJiNmI3MTQ5ZmQ2OTk2ODcwIiwidXNlcl9pZCI6MTR9.rzL9efeCtcHDaQSQEZHugYTOdo9NFQ_0eLRw-Q2MAHY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/user_info/?user_id=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"user_info",
+						""
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получить список всех постов",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/posts_list/?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts_list",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Посмотреть комментарии по id поста",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/comments_list/?post_id=4&page=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"comments_list",
+						""
+					],
+					"query": [
+						{
+							"key": "post_id",
+							"value": "4"
+						},
+						{
+							"key": "page",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать пост",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5MTE2MzMzLCJpYXQiOjE3MDkwOTQ3MzMsImp0aSI6ImQzZmQ2OTdhNGNjOTQ4NmM5YTA0Y2U3MzViYzdkZDA3IiwidXNlcl9pZCI6MTR9.2ApkQJvcUzG7igXMH0LkBw0Q2b9hTMVu1JASvD15e9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Цветы к праздникам\",\r\n    \"text\": \"Почти миллион килограммов цветов привезли в Екатеринбург с начала этого года.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Установить изображение посту",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5MTE2MzMzLCJpYXQiOjE3MDkwOTQ3MzMsImp0aSI6ImQzZmQ2OTdhNGNjOTQ4NmM5YTA0Y2U3MzViYzdkZDA3IiwidXNlcl9pZCI6MTR9.2ApkQJvcUzG7igXMH0LkBw0Q2b9hTMVu1JASvD15e9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "1m38krMdF/банк.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/post_image/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"post_image",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактировать пост",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTQxNzU5LCJpYXQiOjE3MDg1MjAxNTksImp0aSI6ImFjNmViNzQwOGY5MjQwZjU5M2ZhY2RmODg0NmI1OGEyIiwidXNlcl9pZCI6OX0.uSAzBNQhif4PVrtpJMeA2JOkhx_5bD21LqNePt1d1pQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Фестиваль пельменей\",\r\n    \"text\": \"50 тысяч пельменей слепят уральцы на конкурсе в Екатеринбурге. 12 команд приготовят почти полтонны титульного уральского продукта по индивидуальному рецепту. Продлится фестиваль два дня, а на третий проведут дегустацию, сообщает Ural Mash.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/?post_id=12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						""
+					],
+					"query": [
+						{
+							"key": "post_id",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить пост",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTEzMTAyLCJpYXQiOjE3MDg0OTE1MDIsImp0aSI6ImZlMTVkNjNkNjk0ZjQwOTJhYWZkZTViYzBiOGY2OGRiIiwidXNlcl9pZCI6N30.cE83Gad8dlnkqXJZEHSU7TGbslQkGqJ3b4s9BN7DlhM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/posts/?post_id=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						""
+					],
+					"query": [
+						{
+							"key": "post_id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создать комментарий",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTEzMTAyLCJpYXQiOjE3MDg0OTE1MDIsImp0aSI6ImZlMTVkNjNkNjk0ZjQwOTJhYWZkZTViYzBiOGY2OGRiIiwidXNlcl9pZCI6N30.cE83Gad8dlnkqXJZEHSU7TGbslQkGqJ3b4s9BN7DlhM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"Какашка\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/comments/?post_id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"comments",
+						""
+					],
+					"query": [
+						{
+							"key": "post_id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Редактировать комментарий",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA4NTEzMTAyLCJpYXQiOjE3MDg0OTE1MDIsImp0aSI6ImZlMTVkNjNkNjk0ZjQwOTJhYWZkZTViYzBiOGY2OGRiIiwidXNlcl9pZCI6N30.cE83Gad8dlnkqXJZEHSU7TGbslQkGqJ3b4s9BN7DlhM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"С нетерпением жду весну\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/comments/?comment_id=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"comments",
+						""
+					],
+					"query": [
+						{
+							"key": "comment_id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Удалить комментарий",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA5MTE2MzMzLCJpYXQiOjE3MDkwOTQ3MzMsImp0aSI6ImQzZmQ2OTdhNGNjOTQ4NmM5YTA0Y2U3MzViYzdkZDA3IiwidXNlcl9pZCI6MTR9.2ApkQJvcUzG7igXMH0LkBw0Q2b9hTMVu1JASvD15e9I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/comments/?comment_id=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"comments",
+						""
+					],
+					"query": [
+						{
+							"key": "comment_id",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
